@@ -713,9 +713,9 @@ function stampaSquadre(index)
         '<td class="squadre-col2" style="border: 0px;"> <a style="color:black;text-decoration: none;font-weight: bold;color: #005e94;;" href="' + teams[index].url + '" target=”_blank”> ' + teams[index].name + '</a></td>' +
         '<td class="squadre-col1SEP"></td>' +
         '<td class="squadre-col2">' + elencoGiocatori.substring(0, elencoGiocatori.length-4) + '</td>' +
-        '<td class="squadre-col3">' + giocatoriTot + '/' + giocatoriAttivi + '</td>' +
-        '<td class="squadre-col3">' + eloTot.toLocaleString() + '</td>' +
-        '<td class="squadre-col3">' + parseInt(eloMedio).toLocaleString() + '</td>' +
+        //'<td class="squadre-col3">' + giocatoriTot + '/' + giocatoriAttivi + '</td>' +
+        //'<td class="squadre-col3">' + eloTot.toLocaleString() + '</td>' +
+        //'<td class="squadre-col3">' + parseInt(eloMedio).toLocaleString() + '</td>' +
     '</tr>');
 
 
