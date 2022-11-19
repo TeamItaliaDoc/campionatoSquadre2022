@@ -117,6 +117,54 @@ function creaGiocatore(apiUsername, squadra) {
     giocatori[username].userVinte = [];
     giocatori[username].userPatte = [];
     giocatori[username].giocatoCampionato = false;
+    for (var userPresenza in presenze) {
+        if (username == presenze[userPresenza].username) {
+            giocatori[username].g1 = presenze[userPresenza].g1;
+            giocatori[username].g2 = presenze[userPresenza].g2;
+            giocatori[username].g3 = presenze[userPresenza].g3;
+            giocatori[username].g4 = presenze[userPresenza].g4;
+            giocatori[username].g5 = presenze[userPresenza].g5;
+            giocatori[username].g6 = presenze[userPresenza].g6;
+            giocatori[username].g7 = presenze[userPresenza].g7;
+            giocatori[username].presenzeTot = 0;            
+            if (squadra == '') {
+                console.log('------------------------- SQUADRA NON TROVATA: ' + username);
+                console.log('------------------------- SQUADRA NON TROVATA: ' + username);
+                console.log('------------------------- SQUADRA NON TROVATA: ' + username);
+                console.log('------------------------- SQUADRA NON TROVATA: ' + username);
+                console.log('------------------------- SQUADRA NON TROVATA: ' + username);
+            }
+
+            if (presenze[userPresenza].g1 == '1' || presenze[userPresenza].g1 == '2') {
+                giocatori[username].presenzeTot += 1; 
+                if (squadra != '') teams[squadra].giocatoriRegistrati +=  1;
+            }
+            if (presenze[userPresenza].g2 == '1' || presenze[userPresenza].g2 == '2') {
+                giocatori[username].presenzeTot += 1; 
+                if (squadra != '') teams[squadra].giocatoriRegistrati +=  1;
+            }
+            if (presenze[userPresenza].g3 == '1' || presenze[userPresenza].g3 == '2') {
+                giocatori[username].presenzeTot += 1; 
+                if (squadra != '') teams[squadra].giocatoriRegistrati +=  1;
+            }
+            if (presenze[userPresenza].g4 == '1' || presenze[userPresenza].g4 == '2') {
+                giocatori[username].presenzeTot += 1; 
+                if (squadra != '') teams[squadra].giocatoriRegistrati +=  1;
+            }
+            if (presenze[userPresenza].g5 == '1' || presenze[userPresenza].g5 == '2') {
+                giocatori[username].presenzeTot += 1; 
+                teams[squadra].giocatoriRegistrati +=  1;
+            }
+            if (presenze[userPresenza].g6 == '1' || presenze[userPresenza].g6 == '2') {
+                giocatori[username].presenzeTot += 1; 
+                if (squadra != '') teams[squadra].giocatoriRegistrati +=  1;
+            }
+            if (presenze[userPresenza].g7 == '1' || presenze[userPresenza].g7 == '2') {
+                giocatori[username].presenzeTot += 1; 
+                if (squadra != '') teams[squadra].giocatoriRegistrati +=  1;
+            }
+        }
+    };
 
     //Se si è ritirato da una squadra lo metto tra i bannati
     if (squadra == '')
@@ -170,6 +218,7 @@ function calcolaClassificaGiocatori()
     var username = '';
     var max = 0;
     var maxSpareggio = 0;
+    var maxPresenzeTot = 0;
     var posizione = 0;
     var nPareggi = 0;
     var oldMax = 0;
@@ -180,11 +229,15 @@ function calcolaClassificaGiocatori()
         maxSpareggio = -1;
         for (var i in giocatori)
         {
-            if ((bannati.indexOf(giocatori[i].username) == -1) &&  (giocatori[i].giocatoCampionato) &&
-               (giocatori[i].posizione == 0) && (giocatori[i].punti > max || (giocatori[i].punti == max) && giocatori[i].puntiSpareggio > maxSpareggio)) {
+            if ((bannati.indexOf(giocatori[i].username) == -1) &&  // stampo tutti per visualizzare le presenze (giocatori[i].giocatoCampionato) &&
+               (giocatori[i].posizione == 0) && 
+               ( (giocatori[i].punti > max) || (giocatori[i].punti == max && giocatori[i].puntiSpareggio > maxSpareggio) || 
+                 (giocatori[i].punti == max) && giocatori[i].puntiSpareggio == maxSpareggio && giocatori[i].presenzeTot > maxPresenzeTot) 
+            ) {
                 username = i;
                 max = giocatori[i].punti;
                 maxSpareggio = giocatori[i].puntiSpareggio;
+                maxPresenzeTot = giocatori[i].presenzeTot;
             }
         }
         if (max > -1) 
@@ -210,8 +263,75 @@ function calcolaClassificaGiocatori()
 function stampaGiocatore(username)
 {
     console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].squadra);
-    //stampo riga    
-    $("#giocatori").append('<tr class="classifica-giocatori">' +
+    var presenze = '';
+    
+    if (! giocatori[username].g1) {
+        console.log('stampaGiocatore: ' + username + ' - G1 NON VALIDO, ESCO');
+        console.log('stampaGiocatore: ' + username + ' - G1 NON VALIDO, ESCO');
+        console.log('stampaGiocatore: ' + username + ' - G1 NON VALIDO, ESCO');
+    }
+    console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].g1);
+    console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].g2);
+
+    if (giocatori[username].g1 == '2')
+        presenze += '<td> <img  src="img\\checkOk-2.png">'
+    else if (giocatori[username].g1 == '1')
+        presenze += '<td> <img  src="img\\checkOk-1.png">'
+    else if (giocatori[username].g1 == '0')
+        presenze += '<td> <img  src="img\\checkKo.png">'
+        else   presenze += '<td></td>';
+
+    if (giocatori[username].g2 == '2')
+        presenze += '<td> <img  src="img\\checkOk-2.png">'
+    else if (giocatori[username].g2 == '1')
+        presenze += '<td> <img  src="img\\checkOk-1.png">'
+    else if (giocatori[username].g2 == '0')
+        presenze += '<td> <img  src="img\\checkKo.png">'
+        else   presenze += '<td></td>';
+
+    if (giocatori[username].g3 == '2')
+        presenze += '<td> <img  src="img\\checkOk-2.png">'
+    else if (giocatori[username].g3 == '1')
+        presenze += '<td> <img  src="img\\checkOk-1.png">'
+    else if (giocatori[username].g3 == '0')
+        presenze += '<td> <img  src="img\\checkKo.png">'
+        else   presenze += '<td></td>';
+
+    if (giocatori[username].g4 == '2')
+        presenze += '<td> <img  src="img\\checkOk-2.png">'
+    else if (giocatori[username].g4 == '1')
+        presenze += '<td> <img  src="img\\checkOk-1.png">'
+    else if (giocatori[username].g4 == '0')
+        presenze += '<td> <img  src="img\\checkKo.png">'
+        else   presenze += '<td></td>';
+
+    if (giocatori[username].g5 == '2')
+        presenze += '<td> <img  src="img\\checkOk-2.png">'
+    else if (giocatori[username].g5 == '1')
+        presenze += '<td> <img  src="img\\checkOk-1.png">'
+    else if (giocatori[username].g5 == '0')
+        presenze += '<td> <img  src="img\\checkKo.png">'
+        else   presenze += '<td></td>';
+
+    if (giocatori[username].g6 == '2')
+        presenze += '<td> <img  src="img\\checkOk-2.png">'
+    else if (giocatori[username].g6 == '1')
+        presenze += '<td> <img  src="img\\checkOk-1.png">'
+    else if (giocatori[username].g6 == '0')
+        presenze += '<td> <img  src="img\\checkKo.png">'
+        else   presenze += '<td></td>';
+
+    if (giocatori[username].g7 == '2')
+        presenze += '<td> <img  src="img\\checkOk-2.png">'
+    else if (giocatori[username].g7 == '1')
+        presenze += '<td> <img  src="img\\checkOk-1.png">'
+    else if (giocatori[username].g7 == '0')
+        presenze += '<td> <img  src="img\\checkKo.png">'
+        else   presenze += '<td></td>';
+    
+        console.log('stampaGiocatore: ' + username + ' - ' + presenze);
+
+    $("#giocatori1").append('<tr class="classifica-giocatori">' +
         '<td class="classifica-col1">' + giocatori[username].posizione + '</td>' +  
         '<td class="giocatori-col1SEP"></td>' + 
         '<td class="classifica-col2">' +
@@ -239,15 +359,13 @@ function stampaGiocatore(username)
         '    </tr></table>' +
         '</td>' +        
         '<td class="classifica-col3">' + giocatori[username].punti +'</td>' +
-       // '<td class="classifica-col3">' + giocatori[username].puntiSpareggio +'</td>' +
         '<td class="classifica-col4"> <span class="game-win">' +  giocatori[username].vinte + ' W</span> /'+
         '<span class="game-lost">' +  giocatori[username].perse + ' L</span> /' +
         '<span class="game-draw">' +  giocatori[username].patte + ' D</span>' +
         '</td>' +
+        presenze +
         '</tr>'
     );
-
-  
 }
 
 function sleep(milliseconds) {

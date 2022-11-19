@@ -3,33 +3,32 @@ var calcolaTeamsRun = false;
 var calcolaClassificaRun = false;
 var classificaTeams = [];
 
-var dataFine = new Date(2022, 08, 1, 0, 0, 0, 0);
+var dataFine = new Date(2023, 09, 1, 0, 0, 0, 0);
 
 
 var teams = [];
 teams['i-nazgul']={"giocatori" : [9], "name":" I Nazgul","club_id":"398283","urlMembri":"https://api.chess.com/pub/club/i-nazgul/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/398283.1b6e8af8.50x50o.8d8a1fc93ba8.png","url":"https://www.chess.com/club/i-nazgul","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
 teams['gli-elfi']={"giocatori" : [6], "name":"Gli Elfi","club_id":"314359","urlMembri":"https://api.chess.com/pub/club/gli-elfi/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/314359.206070d7.50x50o.b991528c9bc7.jpeg","url":"https://www.chess.com/club/gli-elfi","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
 teams['gli-orchi']={"giocatori" : [4], "name":"Gli Orchi","club_id":"79540","urlMembri":"https://api.chess.com/pub/club/gli-orchi/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/79540.e255cc72.50x50o.48021d861633.jpeg","url":"https://www.chess.com/club/gli-orchi","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
-    teams['le-aquile']={"giocatori" : [11], "name":"Le Aquile","club_id":"79510","urlMembri":"https://api.chess.com/pub/club/le-aquile/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/79510.4181dfde.50x50o.184a579f3e5b.jpeg","url":"https://www.chess.com/club/le-aquile","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
+teams['le-aquile']={"giocatori" : [11], "name":"Le Aquile","club_id":"79510","urlMembri":"https://api.chess.com/pub/club/le-aquile/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/79510.4181dfde.50x50o.184a579f3e5b.jpeg","url":"https://www.chess.com/club/le-aquile","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
 teams['i-raminghi']={"giocatori" : [11], "name":"I Raminghi","club_id":"314357","urlMembri":"https://api.chess.com/pub/club/i-raminghi/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/314357.e9b24b53.50x50o.dfad8176dedb.jpeg","url":"https://www.chess.com/club/i-raminghi","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
 teams['la-compagnia-del-pedone']={"giocatori" : [4], "name":"La Comp. <BR> del pedone","club_id":"79546","urlMembri":"https://api.chess.com/pub/club/la-compagnia-del-pedone/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/79546.38e2b340.50x50o.a971b3dfe492.jpeg","url":"https://www.chess.com/club/members/la-compagnia-del-pedone","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
-    teams['gli-ent']={"giocatori" : [11], "name":"Gli Ent","club_id":"79544","urlMembri":"https://api.chess.com/pub/club/gli-ent/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/79544.44efa9b7.50x50o.d7b6c5f9c44d.jpeg","url":"https://www.chess.com/club/gli-ent","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
+teams['gli-ent']={"giocatori" : [11], "name":"Gli Ent","club_id":"79544","urlMembri":"https://api.chess.com/pub/club/gli-ent/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/79544.44efa9b7.50x50o.d7b6c5f9c44d.jpeg","url":"https://www.chess.com/club/gli-ent","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
 teams['i-cavalieri-di-rohan']={"giocatori" : [8], "name":"I Cavalieri <BR> di Rohan","club_id":"79318","urlMembri":"https://api.chess.com/pub/club/i-cavalieri-di-rohan/members","icon":"https://images.chesscomfiles.com/uploads/v1/group/79318.a6511232.50x50o.be143ab30f5f.jpeg","url":"https://www.chess.com/club/i-cavalieri-di-rohan","puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "puntiMatchConclusi":0, "giocatoriRegistrati":0, "mediaConclusi":0, "finaleConclusi":"","teamVinte" : [], "teamPatte" : [], "penalità":0, "penalitàTotali":0, "daCaricare":true};
 
 var matchs = [];
-
 
 matchs[11] = {"id":"https://api.chess.com/pub/match/1426211", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[12] = {"id":"https://api.chess.com/pub/match/1426241", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[13] = {"id":"https://api.chess.com/pub/match/1426235", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[14] = {"id":"https://api.chess.com/pub/match/1426213", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 
-/*
-matchs[21] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[22] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[23] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[24] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
+matchs[21] = {"id":"https://api.chess.com/pub/match/1436459", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
+matchs[22] = {"id":"https://api.chess.com/pub/match/1436465", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
+matchs[23] = {"id":"https://api.chess.com/pub/match/1436463", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
+matchs[24] = {"id":"https://api.chess.com/pub/match/1436461", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 
+/*
 matchs[31] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[32] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[33] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
@@ -54,16 +53,6 @@ matchs[71] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalit�
 matchs[72] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[73] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[74] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-
-matchs[81] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[82] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":1, "daCaricare":true,  "concluso": false, "Punti1":2, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[83] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[84] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-
-matchs[91] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[92] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[93] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-matchs[94] = {"id":"https://api.chess.com/pub/match/", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 */
 
 
@@ -73,9 +62,9 @@ function elabora() {
     //Carico i dati di tutti i teams
     for (var i in teams) {
         //Calcolo i giocatori registrati totoali
-        for (var igiocatori in teams[i].giocatori) {
-            teams[i].giocatoriRegistrati +=  teams[i].giocatori[igiocatori];
-        };
+        //for (var igiocatori in teams[i].giocatori) {
+        //    teams[i].giocatoriRegistrati +=  teams[i].giocatori[igiocatori];
+        //};
 
         sleep(50);
         caricaTeams(teams[i].urlMembri);
@@ -96,7 +85,7 @@ function caricaTeams(urlMembri) {
 
                 console.log('Letti dati team: ' + myTeam + ' - ' + this.url);
 
-                //Creao lista giocatori tema
+                //Creao lista giocatori teams
                 teams[myTeam].giocatori = [];
                 //Carico tutti i giocatori
                 for (var i in data.weekly) {
@@ -231,102 +220,70 @@ function caricaMatch(index, url)
 
             //Calcolo punti
             for (var i in data.teams.team1.players) {
+                console.log('----------------');
+                console.log('player 1' + data.teams.team1.players[i].username);
+                console.log('player 2' + data.teams.team2.players[i].username);
                 //Punti Team 1
-                //if (data.teams.team1.players[i].status != 'closed:fair_play_violations') { //Se non è stato bannato
-                if ( bannatiBoard1.indexOf(data.teams.team1.players[i].board) == -1) {  //Se non stato bannato 
-                    if ( bannatiBoard2.indexOf(data.teams.team1.players[i].board) > -1) {  //Se è stato bannato avversario
-                        matchs[index].Punti1 += 2;  //Vale per entrambe le partite
+                if ( bannatiBoard1.indexOf(data.teams.team1.players[i].board) > -1 || 
+                     bannatiBoard2.indexOf(data.teams.team1.players[i].board) > -1) {  //Se è stato bannato un giocatore
+                        matchs[index].PuntiBannati += 1;  
+                        console.log('Bannato');
                     } else {
                         if (data.teams.team1.players[i].played_as_black == 'win') {
                             matchs[index].Punti1 ++;
+                            console.log('Vinto 1: ' + matchs[index].Punti1);
                         } else {
                             if ((data.teams.team1.players[i].played_as_black == 'agreed') || (data.teams.team1.players[i].played_as_black == 'repetition')  || (data.teams.team1.players[i].played_as_black == 'timevsinsufficient') || 
                                  (data.teams.team1.players[i].played_as_black == '50move') || (data.teams.team1.players[i].played_as_black == 'insufficient') || (data.teams.team1.players[i].played_as_black == 'stalemate')  ) {
                                     matchs[index].Punti1 += 0.5;
-                            }
+                                    console.log('Patta 1: ' + matchs[index].Punti1);
+                                }
                         }
                         if (data.teams.team1.players[i].played_as_white ) { //Se la partita non è ancora conclusa non è definito
                             if (data.teams.team1.players[i].played_as_white == 'win') {
                                 matchs[index].Punti1 ++;
+                                console.log('Vinto 1 (2): ' + matchs[index].Punti1);
                             } else {
                                 if ((data.teams.team1.players[i].played_as_white == 'agreed') || (data.teams.team1.players[i].played_as_white == 'repetition')  || (data.teams.team1.players[i].played_as_white == 'timevsinsufficient') || 
                                      (data.teams.team1.players[i].played_as_white == '50move') || (data.teams.team1.players[i].played_as_white == 'insufficient') || (data.teams.team1.players[i].played_as_white == 'stalemate')  ) {
                                         matchs[index].Punti1 += 0.5;
-                                }
+                                        console.log('Patta 1 (2): ' + matchs[index].Punti1);
+                                    }
                             }
                         }
-                    } 
-                /*??? } else {  //è stato bannato
-                     if (data.teams.team1.players[i].played_as_black == 'win') {
-                        matchs[index].PuntiBannati ++;
-                    } else {
-                        if ((data.teams.team1.players[i].played_as_black == 'agreed') || (data.teams.team1.players[i].played_as_black == 'repetition')  || (data.teams.team1.players[i].played_as_black == 'timevsinsufficient') || 
-                             (data.teams.team1.players[i].played_as_black == '50move') || (data.teams.team1.players[i].played_as_black == 'insufficient') || (data.teams.team1.players[i].played_as_black == 'stalemate')  ) {
-                                matchs[index].PuntiBannati += 0.5;
-                        }
-                    }
-                    if (data.teams.team1.players[i].played_as_white ) { //Se la partita non è ancora conclusa non è definito
-                        if (data.teams.team1.players[i].played_as_white == 'win') {
-                            matchs[index].PuntiBannati ++;
-                        } else {
-                            if ((data.teams.team1.players[i].played_as_white == 'agreed') || (data.teams.team1.players[i].played_as_white == 'repetition')  || (data.teams.team1.players[i].played_as_white == 'timevsinsufficient') || 
-                                 (data.teams.team1.players[i].played_as_white == '50move') || (data.teams.team1.players[i].played_as_white == 'insufficient') || (data.teams.team1.players[i].played_as_white == 'stalemate')  ) {
-                                    matchs[index].PuntiBannati += 0.5;
-                            }
-                        }
-                    }
-                */
-                }
-                //Punti Team 2
-                //???????if (data.teams.team2.players[i].status != 'closed:fair_play_violations') { //Se non è stato bannato
-                    if ( bannatiBoard2.indexOf(data.teams.team1.players[i].board) == -1) {  //Se non stato bannato 
-                        if ( bannatiBoard1.indexOf(data.teams.team2.players[i].board) > -1) {  //Se è stato bannato avversario
-                        matchs[index].Punti2 += 2;  //Vale per entrambe le partite
-                    } else {
-                        if (data.teams.team2.players[i].played_as_black == 'win') {
+                    }    
+                    //Punti Team 2
+                    if ( bannatiBoard1.indexOf(data.teams.team2.players[i].board) > -1 || 
+                        bannatiBoard2.indexOf(data.teams.team2.players[i].board) > -1) {  //Se è stato bannato un giocatore
+                           matchs[index].PuntiBannati += 1;  
+                           console.log('Bannato');
+                       } else {
+                            if (data.teams.team2.players[i].played_as_black == 'win') {
                             matchs[index].Punti2 ++;
+                            console.log('Vinto 2: ' + matchs[index].Punti2);
                         } else {
                             if ((data.teams.team2.players[i].played_as_black == 'agreed') || (data.teams.team2.players[i].played_as_black == 'repetition')  || (data.teams.team2.players[i].played_as_black == 'timevsinsufficient') || 
                                 (data.teams.team2.players[i].played_as_black == '50move') || (data.teams.team2.players[i].played_as_black == 'insufficient') || (data.teams.team2.players[i].played_as_black == 'stalemate')  ) {
                                     matchs[index].Punti2 += 0.5;
-                            }
+                                    console.log('Patta 2: ' + matchs[index].Punti2);
+                                }
                         }
                         if (data.teams.team2.players[i].played_as_white ) { //Se la partita non è ancora conclusa non è definito
                             if (data.teams.team2.players[i].played_as_white == 'win') {
                                 matchs[index].Punti2 ++;
+                                console.log('Vinto 2 (2): ' + matchs[index].Punti2);
                             } else {
                                 if ((data.teams.team2.players[i].played_as_white == 'agreed') || (data.teams.team2.players[i].played_as_white == 'repetition')  || (data.teams.team2.players[i].played_as_white == 'timevsinsufficient') || 
                                     (data.teams.team2.players[i].played_as_white == '50move') || (data.teams.team2.players[i].played_as_white == 'insufficient') || (data.teams.team2.players[i].played_as_white == 'stalemate')  ) {
                                         matchs[index].Punti2 += 0.5;
+                                        console.log('Patta 2 (2): ' + matchs[index].Punti2);
                                     
                                 }
                             }
                         }
                     }
-                /* ???} else {
-                    if (data.teams.team2.players[i].played_as_black == 'win') {
-                        matchs[index].PuntiBannati ++;
-                    } else {
-                        if ((data.teams.team2.players[i].played_as_black == 'agreed') || (data.teams.team2.players[i].played_as_black == 'repetition')  || (data.teams.team2.players[i].played_as_black == 'timevsinsufficient') || 
-                            (data.teams.team2.players[i].played_as_black == '50move') || (data.teams.team2.players[i].played_as_black == 'insufficient') || (data.teams.team2.players[i].played_as_black == 'stalemate')  ) {
-                                matchs[index].PuntiBannati += 0.5;
-                        }
-                    }
-                    if (data.teams.team2.players[i].played_as_white ) { //Se la partita non è ancora conclusa non è definito
-                        if (data.teams.team2.players[i].played_as_white == 'win') {
-                            matchs[index].PuntiBannati ++;
-                        } else {
-                            if ((data.teams.team2.players[i].played_as_white == 'agreed') || (data.teams.team2.players[i].played_as_white == 'repetition')  || (data.teams.team2.players[i].played_as_white == 'timevsinsufficient') || 
-                                (data.teams.team2.players[i].played_as_white == '50move') || (data.teams.team2.players[i].played_as_white == 'insufficient') || (data.teams.team2.players[i].played_as_white == 'stalemate')  ) {
-                                    matchs[index].PuntiBannati += 0.5;
-                                
-                            }
-                        }
-                    } ?? */
-
                 }   
-            }
-
+ 
             //Penalità assegnate
             matchs[index].Punti1 += matchs[index].penalità1;
             matchs[index].Punti2 += matchs[index].penalità2;
@@ -351,7 +308,7 @@ function caricaMatch(index, url)
             } 
             //Se terminata
             var adesso = new Date();
-            if ( ((matchs[index].boards * 2) + (matchs[index].boardsPenalità * 2) + (matchs[index].penalità1 + matchs[index].penalità2) == matchs[index].Punti1 + matchs[index].Punti2) ||
+            if ( ((matchs[index].boards * 2) + (matchs[index].boardsPenalità * 2) + (matchs[index].penalità1 + matchs[index].penalità2) == matchs[index].Punti1 + matchs[index].Punti2 + + matchs[index].PuntiBannati) ||
                     (dataFine < adesso) )  //Se ho superato la data di fine
             {
                 matchs[index].concluso = true;
@@ -384,27 +341,18 @@ function caricaMatch(index, url)
             for (var i in data.teams.team1.players) {
                 username1 = data.teams.team1.players[i].username;
                 username2 = data.teams.team2.players[i].username;
-                risultato = data.teams.team1.players[i].played_as_white;
-                if ( bannatiBoard2.indexOf(data.teams.team1.players[i].board) > -1)   //Se è stato bannato avversario
-                    risultato = 'win';
-                setPunti(username1, risultato);
-                risultato = data.teams.team1.players[i].played_as_black;
-                if ( bannatiBoard2.indexOf(data.teams.team1.players[i].board) > -1)   //Se è stato bannato avversario
-                    risultato = 'win';
-                setPunti(username1, risultato);
-                risultato = data.teams.team2.players[i].played_as_white;
-                if ( bannatiBoard1.indexOf(data.teams.team2.players[i].board) > -1)  //Se è stato bannato avversario
-                    risultato = 'win';
-                setPunti(username2, risultato);
-                if ( bannatiBoard1.indexOf(data.teams.team2.players[i].board) > -1)  //Se è stato bannato avversario
-                    risultato = 'win';
-                risultato = data.teams.team2.players[i].played_as_black;
-                setPunti(username2, risultato);
-                //Confera per aver giocato in questo campionato
-                giocatori[username1].giocatoCampionato = true;
-                giocatori[username2].giocatoCampionato = true;
-
+                if ( bannatiBoard2.indexOf(data.teams.team1.players[i].board) == -1 && 
+                     bannatiBoard2.indexOf(data.teams.team1.players[i].board) == -1)   //Solo se non sono stati banai
+                {
+                     risultato = data.teams.team1.players[i].played_as_white;
+                     setPunti(username1, risultato);
+                     risultato = data.teams.team1.players[i].played_as_black;
+                     setPunti(username1, risultato);
+                }
             }
+            //Conferma per aver giocato in questo campionato
+            giocatori[username1].giocatoCampionato = true;
+            giocatori[username2].giocatoCampionato = true;
         }
 
         //Se ho caricato tutti i dati calcolo la classifica

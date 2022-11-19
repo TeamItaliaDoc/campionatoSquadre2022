@@ -141,24 +141,28 @@
     width:80px;
     text-align:center;
 }   
+.classifica-col11 {
+    width:45px;
+    text-align:center;
+}   
 .classifica-col1SEP {
     width:3px;
     background-color:black;
 }   
 .classifica-col2 {
-    width:220px;
+    width:240px;
     text-align:left;
 }   
 .classifica-col3 {
-    width:120px;
+    width:50px;
     text-align:left;
 }   
 .classifica-col4 {
-    width:130px;
+    width:125px;
     text-align:left;
 }   
 .classifica-col5 {
-    width:90px;
+    width:37px;
     text-align:center;
 }   
 .classifica-col6 {
