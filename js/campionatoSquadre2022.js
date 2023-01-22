@@ -64,6 +64,7 @@ function elabora() {
     var presenze1 = JSON.stringify(presenze);
     presenze1 = presenze1.replace('frankiel','frankiei');
     presenze1 = presenze1.replace('fulvio cagnazzi','fulviocagnazzi');
+    presenze1 = presenze1.replace('RainingBuckets','rainingBuckets');
     presenze = JSON.parse(presenze1);
     
     //Carico i dati di tutti i teams

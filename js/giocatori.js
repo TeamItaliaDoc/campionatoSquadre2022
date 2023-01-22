@@ -118,7 +118,9 @@ function creaGiocatore(apiUsername, squadra) {
     giocatori[username].userPatte = [];
     giocatori[username].giocatoCampionato = false;
     for (var userPresenza in presenze) {
+//        console.log(username + ' - ' + presenze[userPresenza].username);
         if (username == presenze[userPresenza].username) {
+//            console.log('TROVATO');
             giocatori[username].g1 = presenze[userPresenza].g1;
             giocatori[username].g2 = presenze[userPresenza].g2;
             giocatori[username].g3 = presenze[userPresenza].g3;
@@ -279,6 +281,8 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkOk-1.png">'
     else if (giocatori[username].g1 == '0')
         presenze += '<td> <img  src="img\\checkKo.png">'
+    else if (giocatori[username].g1 == '=')
+        presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
 
     if (giocatori[username].g2 == '2')
@@ -287,6 +291,8 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkOk-1.png">'
     else if (giocatori[username].g2 == '0')
         presenze += '<td> <img  src="img\\checkKo.png">'
+    else if (giocatori[username].g2 == '=')
+        presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
 
     if (giocatori[username].g3 == '2')
@@ -295,6 +301,8 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkOk-1.png">'
     else if (giocatori[username].g3 == '0')
         presenze += '<td> <img  src="img\\checkKo.png">'
+    else if (giocatori[username].g3== '=')
+        presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
 
     if (giocatori[username].g4 == '2')
@@ -303,6 +311,8 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkOk-1.png">'
     else if (giocatori[username].g4 == '0')
         presenze += '<td> <img  src="img\\checkKo.png">'
+    else if (giocatori[username].g4 == '=')
+        presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
 
     if (giocatori[username].g5 == '2')
@@ -311,6 +321,8 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkOk-1.png">'
     else if (giocatori[username].g5 == '0')
         presenze += '<td> <img  src="img\\checkKo.png">'
+    else if (giocatori[username].g5 == '=')
+        presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
 
     if (giocatori[username].g6 == '2')
@@ -319,6 +331,8 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkOk-1.png">'
     else if (giocatori[username].g6 == '0')
         presenze += '<td> <img  src="img\\checkKo.png">'
+    else if (giocatori[username].g6 == '=')
+        presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
 
     if (giocatori[username].g7 == '2')
@@ -327,6 +341,8 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkOk-1.png">'
     else if (giocatori[username].g7 == '0')
         presenze += '<td> <img  src="img\\checkKo.png">'
+    else if (giocatori[username].g7 == '=')
+        presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
     
         console.log('stampaGiocatore: ' + username + ' - ' + presenze);
