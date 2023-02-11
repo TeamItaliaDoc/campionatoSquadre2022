@@ -369,7 +369,7 @@ function stampaGiocatore(username)
         '    </td>' +
         '    <td width=7px></td>' +
         '    <td><div>' +
-        '            <a class="username" href="' + teams[giocatori[username].squadra].urlMembri + '" target=”_blank”> ' + teams[giocatori[username].squadra].name + '</a>' +
+        '            <a class="username" href="' + teams[giocatori[username].squadra].url + '" target=”_blank”> ' + teams[giocatori[username].squadra].name + '</a>' +
         '        </div> <div>  (' + giocatori[username].elo + ') </div>' +
         '        </td>' +    
         '    </tr></table>' +
