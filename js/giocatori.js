@@ -135,6 +135,7 @@ function creaGiocatore(apiUsername, squadra) {
                 console.log('------------------------- SQUADRA NON TROVATA: ' + username);
                 console.log('------------------------- SQUADRA NON TROVATA: ' + username);
                 console.log('------------------------- SQUADRA NON TROVATA: ' + username);
+                continue;
             }
 
             if (presenze[userPresenza].g1 == '1' || presenze[userPresenza].g1 == '2') {
@@ -153,7 +154,7 @@ function creaGiocatore(apiUsername, squadra) {
                 giocatori[username].presenzeTot += 1; 
                 if (squadra != '') teams[squadra].giocatoriRegistrati +=  1;
             }
-            if (presenze[userPresenza].g5 == '1' || presenze[userPresenza].g5 == '2') {
+            if (presenze[userPresenza].g5 == '1' || presenze[userPresenza].g5 == '2')  {
                 giocatori[username].presenzeTot += 1; 
                 teams[squadra].giocatoriRegistrati +=  1;
             }
@@ -264,7 +265,7 @@ function calcolaClassificaGiocatori()
  
 function stampaGiocatore(username)
 {
-    console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].squadra);
+    //console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].squadra);
     var presenze = '';
     
     if (! giocatori[username].g1) {
@@ -272,8 +273,8 @@ function stampaGiocatore(username)
         console.log('stampaGiocatore: ' + username + ' - G1 NON VALIDO, ESCO');
         console.log('stampaGiocatore: ' + username + ' - G1 NON VALIDO, ESCO');
     }
-    console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].g1);
-    console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].g2);
+    //console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].g1);
+    //console.log('stampaGiocatore: ' + username + ' - ' + giocatori[username].g2);
 
     if (giocatori[username].g1 == '2')
         presenze += '<td> <img  src="img\\checkOk-2.png">'
@@ -345,7 +346,7 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
     
-        console.log('stampaGiocatore: ' + username + ' - ' + presenze);
+      //  console.log('stampaGiocatore: ' + username + ' - ' + presenze);
 
     $("#giocatori1").append('<tr class="classifica-giocatori">' +
         '<td class="classifica-col1">' + giocatori[username].posizione + '</td>' +  
