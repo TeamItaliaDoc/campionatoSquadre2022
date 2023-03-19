@@ -189,22 +189,31 @@ function caricaMatch(index, url)
             //salvo bannati della partita
             var bannatiBoard1 = [];
             var bannatiBoard2 = [];
+
+            //NB NB NB
+            //   I bannati non vengono considerati se l'incontro e finito.
+            //   Per non far leggere lo stato durante l'elaborazione inserisco a mano le partite da correggere:
+            //https://api.chess.com/pub/match/1426235
+           // bannatiBoard1.push('https://api.chess.com/pub/match/1426235/3');
+           // bannatiBoard1.push('https://api.chess.com/pub/match/1426235/3');
+
+
             for (var i in data.teams.team1.players) {
                 if (! data.teams.team1.players[i])
                     console.log(data.teams.team1.players[i]);
                     if (! data.teams.team2.players[i])
                     console.log(data.teams.team2.players[i]);
-            /* Considero come bannati quelli restituiti nel js
+            /* Considero come bannati quelli restituiti nel js */
                 if (data.teams.team1.players[i].status == 'closed:fair_play_violations' ) {
-                    bannatiBoard.push(data.teams.team1.players[i].board);
+                    bannatiBoard1.push(data.teams.team1.players[i].board);
                     bannati.push(data.teams.team1.players[i].username);
                 }
                 if (data.teams.team2.players[i].status == 'closed:fair_play_violations' ) {
-                    bannatiBoard.push(data.teams.team2.players[i].board);
+                    bannatiBoard2.push(data.teams.team2.players[i].board);
                     bannati.push(data.teams.team2.players[i].username);
                 }
-            }
-            */
+            //}
+            
                 for (var iBannato in data.teams.team1.fair_play_removals) {
                     var username = data.teams.team1.fair_play_removals[iBannato];
                     bannati.push(username);
