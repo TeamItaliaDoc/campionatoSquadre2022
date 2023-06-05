@@ -27,8 +27,8 @@ matchs[21] = {"id":"https://api.chess.com/pub/match/1436459", "penalità1":0, "p
 matchs[22] = {"id":"https://api.chess.com/pub/match/1436465", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[23] = {"id":"https://api.chess.com/pub/match/1436463", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[24] = {"id":"https://api.chess.com/pub/match/1436461", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
-
 matchs[31] = {"id":"https://api.chess.com/pub/match/1444423", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
+
 matchs[32] = {"id":"https://api.chess.com/pub/match/1444421", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[33] = {"id":"https://api.chess.com/pub/match/1444427", "penalità1":2, "penalità2":4, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[34] = {"id":"https://api.chess.com/pub/match/1444425", "penalità1":0, "penalità2":0, "boardsPenalità":0,  "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
@@ -43,18 +43,11 @@ matchs[52] = {"id":"https://api.chess.com/pub/match/1463261", "penalità1":0, "p
 matchs[53] = {"id":"https://api.chess.com/pub/match/1463255", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[54] = {"id":"https://api.chess.com/pub/match/1463259", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 
-//raminghi pedone
-//I Cavalieri di Rohan vs Gli Elfi
-//Le Aquile vs Gli Orchi
-//I Nazgul vs Gli Ent
 matchs[61] = {"id":"https://api.chess.com/pub/match/1471587", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[62] = {"id":"https://api.chess.com/pub/match/1471591", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[63] = {"id":"https://api.chess.com/pub/match/1471589", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[64] = {"id":"https://api.chess.com/pub/match/1471585", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 
-//raminghi ent
-//I Cavalieri di Rohan vs I Nazgul
-//Gli Orchi vs Gli Elfi
 matchs[71] = {"id":"https://api.chess.com/pub/match/1480879", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[72] = {"id":"https://api.chess.com/pub/match/1480873", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
 matchs[73] = {"id":"https://api.chess.com/pub/match/1480875", "penalità1":0, "penalità2":0, "boardsPenalità":0, "daCaricare":true,  "concluso": false, "Punti1":0, "Punti2":0,"PuntiBannati":0, "nGiocatori1":0,  "nGiocatori2":0};
@@ -369,6 +362,10 @@ function caricaMatch(index, url)
                      setPunti(username1, risultato);
                      risultato = data.teams.team1.players[i].played_as_black;
                      setPunti(username1, risultato);
+                     risultato = data.teams.team2.players[i].played_as_white;
+                     setPunti(username2, risultato);
+                     risultato = data.teams.team2.players[i].played_as_black;
+                     setPunti(username2, risultato);
                 }
             }
             //Conferma per aver giocato in questo campionato
