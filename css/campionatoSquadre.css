@@ -227,7 +227,7 @@
     text-align:center;
 } 
 .squadre-col1 {
-    width:120px;
+    width:220px;
     text-align:left;
 } 
 .squadre-colICO {
@@ -239,11 +239,15 @@
     text-align:left;
 } 
 .squadre-col2 {
-    width:220px;
+    width:120px;
     text-align:left;
 } 
 .squadre-col3 {
     width:120px;
+    text-align:left;
+} 
+.squadre-giocatori-col1 {
+    width:40px;
     text-align:left;
 } 
 /* TABELLA GIRONI */

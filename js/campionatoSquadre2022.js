@@ -3,7 +3,7 @@ var calcolaTeamsRun = false;
 var calcolaClassificaRun = false;
 var classificaTeams = [];
 
-var dataFine = new Date(2023, 09, 1, 0, 0, 0, 0);
+var dataFine = new Date(2023, 9, 1, 0, 0, 0, 0);
 
 
 var teams = [];
@@ -651,32 +651,43 @@ function calcolaClassifica()
         stampaSquadre(classificaTeams[i]);
     }
 
-        //Calcolo clasifica dei giocatori
-        calcolaClassificaGiocatori();
 }
 
     
 function stampaSquadre(index)
 {
     //statistiche team
-    var elencoGiocatori = "";
+    var elencoGiocatori = '<table  id="squadre-giocatori" class="classifica-tabella">';//+
+/*        '<tr class="classifica-intestazione">'+
+        '<td class="classifica-col5">Giocatore</td>'+
+        '<td class="classifica-col5">#1</td>'+
+        '<td class="classifica-col5">#2</td>'+
+        '<td class="classifica-col5">#3</td>'+
+        '<td class="classifica-col5">#4</td>'+
+        '<td class="classifica-col5">#5</td>'+
+        '<td class="classifica-col5">#6</td>'+
+        '<td class="classifica-col5">#7</td>'+
+        '</tr>';*/
     var giocatoriTot = teams[index].giocatori.length;
     var giocatoriAttivi = 0;
     var eloTot = 0;
     for (i in teams[index].giocatori) {
-        elencoGiocatori += giocatori[teams[index].giocatori[i]].displayName + '<br>';
+        elencoGiocatori += '<tr> <td class="squadre-giocatori-col1">' + giocatori[teams[index].giocatori[i]].displayName + '</td>' + giocatori[teams[index].giocatori[i]].presenze + '</tr>';
         if (giocatori[teams[index].giocatori[i]].giocatoCampionato)
             giocatoriAttivi ++;
         eloTot += giocatori[teams[index].giocatori[i]].elo;
     }
-    var eloMedio = eloTot / giocatoriTot;
+    //var eloMedio = eloTot / giocatoriTot;
+    elencoGiocatori += '</table>';
+    debugger;
+    elencoGiocatori = elencoGiocatori.replace('class="classifica-tabella"', '');
 
     //stampo riga    
     $("#squadre").append('<tr class="classifica-giocatori">' +
     '<td class="squadre-colPos">' +  teams[index].posizione + '</td>' +
     '<td class="squadre-col1SEP"></td>' +
     '<td class="squadre-colICO" style="border: 0px;"> <img class="classifica-avatar" src="' + teams[index].icon + '"></td>' +
-        '<td class="squadre-col2" style="border: 0px;"> <a style="color:black;text-decoration: none;font-weight: bold;color: #005e94;;" href="' + teams[index].url + '" target=”_blank”> ' + teams[index].name + '</a></td>' +
+        '<td class="squadre-col1" style="border: 0px;"> <a style="color:black;text-decoration: none;font-weight: bold;color: #005e94;;" href="' + teams[index].url + '" target=”_blank”> ' + teams[index].name + '</a></td>' +
         '<td class="squadre-col1SEP"></td>' +
         '<td class="squadre-col2">' + elencoGiocatori.substring(0, elencoGiocatori.length-4) + '</td>' +
         //'<td class="squadre-col3">' + giocatoriTot + '/' + giocatoriAttivi + '</td>' +

@@ -88,8 +88,8 @@ function getEloUrl(url)
             return;
             calcolaClassificaGiocatoriRun = true;
 
-        //Calcolo clasifica
-        calcolaClassifica();
+        //Calcolo clasifica dei giocatori
+        calcolaClassificaGiocatori();
 
     }).error(function(jqXhr, textStatus, error) {
         //è andato in errore ricarico i dati
@@ -106,6 +106,7 @@ function creaGiocatore(apiUsername, squadra) {
     giocatori[username].url = '';
     giocatori[username].squadra = squadra;
     giocatori[username].displayName = '';
+    giocatori[username].presenze = '';
     //lo assegno quando lo trovo giocatori[username].avatar = '';
     //lo assegno quando lo trovo giocatori[username].elo = 0;
     giocatori[username].punti = 0;
@@ -185,6 +186,7 @@ function setPunti(username, risultato)
     if (! risultato)
         return;
 
+    console.log('setPunti ' + username  + ' - ' + risultato);
     //aggiorno punteggio
     if ( risultato == 'win') {
         giocatori[username].punti ++;
@@ -202,6 +204,7 @@ function setPunti(username, risultato)
                 giocatori[username].perse ++;
             }
     }
+    console.log('setPunti ' + username  + ' - ' + risultato + ' - ' + giocatori[username].punti.toString());
 }
 
 function calcolaClassificaGiocatori()
@@ -261,6 +264,8 @@ function calcolaClassificaGiocatori()
         }
     }
    
+        //Calcolo clasifica
+        calcolaClassifica();
  }
  
 function stampaGiocatore(username)
@@ -346,6 +351,7 @@ function stampaGiocatore(username)
         presenze += '<td> <img  src="img\\checkNo.png">'
         else   presenze += '<td></td>';
     
+    giocatori[username].presenze = presenze;
       //  console.log('stampaGiocatore: ' + username + ' - ' + presenze);
 
     $("#giocatori1").append('<tr class="classifica-giocatori">' +
