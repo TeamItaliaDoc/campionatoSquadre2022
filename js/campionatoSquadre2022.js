@@ -3,7 +3,7 @@ var calcolaTeamsRun = false;
 var calcolaClassificaRun = false;
 var classificaTeams = [];
 
-var dataFine = new Date(2023, 9, 1, 0, 0, 0, 0);
+var dataFine = new Date(2023, 7, 31, 0, 0, 0, 0);   //mese parte da 0
 
 
 var teams = [];
@@ -322,6 +322,7 @@ function caricaMatch(index, url)
             } 
             //Se terminata
             var adesso = new Date();
+            console.log('--- datafine: ' + dataFine + ' ora: ' + adesso + ' - ' + matchs[index].id);  //Se ho superato la data di fine
             if ( ((matchs[index].boards * 2) + (matchs[index].boardsPenalità * 2) + (matchs[index].penalità1 + matchs[index].penalità2) == matchs[index].Punti1 + matchs[index].Punti2 + + matchs[index].PuntiBannati) ||
                     (dataFine < adesso) )  //Se ho superato la data di fine
             {
@@ -679,7 +680,6 @@ function stampaSquadre(index)
     }
     //var eloMedio = eloTot / giocatoriTot;
     elencoGiocatori += '</table>';
-    debugger;
     elencoGiocatori = elencoGiocatori.replace('class="classifica-tabella"', '');
 
     //stampo riga    
